@@ -227,7 +227,7 @@ details[open] .dropping {
 
 .back-ground{
     padding-top: 6rem;
-    background-image: url("another_images/background.jpg");
+    background-image: url("another_images/background.png");
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--shade-of-white);
