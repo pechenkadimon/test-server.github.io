@@ -1,0 +1,164 @@
+/* ============================================================
+   print.css — стили для черно-белой печати
+   ============================================================ */
+
+/* 1. Скрываем всё, что не нужно на бумаге */
+header, footer, .main-nav, .socials, .menu, .basket-icon,
+.button, .visually-hidden, .sr-only {
+    display: none !important;
+}
+
+@page {
+    margin: 1.5cm;
+}
+
+/* 2. Базовые настройки для печати */
+body {
+    background: #fff !important;
+    color: #000 !important;
+    font-family: 'Times New Roman', serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+}
+
+* {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    color: #000 !important;
+}
+
+/* 3. Убираем градиенты у заголовков */
+h1, h2, h3, h4, h5, h6 {
+    background: none !important;
+    -webkit-text-fill-color: #000 !important;
+    color: #000 !important;
+    page-break-after: avoid;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+h1 { font-size: 24pt; }
+h2 { font-size: 18pt; }
+h3 { font-size: 14pt; }
+
+/* 4. Отключаем Grid/Flex для всех крупных блоков */
+.layout, main, section, .hero-layout, .collage, .news,
+#wear .wrapper, footer .last-page {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.back-ground {
+    padding-bottom: 1cm !important; /* Убираем лишний отступ снизу */
+}
+
+.hero-image {
+    max-width: 100% !important;
+    height: auto !important;        /* ✅ Возвращаем нормальные пропорции */
+    object-fit: contain !important; /* ✅ Отключаем обрезку */
+    max-height: 16cm;               /* ✅ Чтобы огромная картинка не заняла всю страницу */
+    display: block;
+    margin: 1em auto;
+    page-break-inside: avoid; 
+}
+
+/* 6. Держим заголовки вместе с контентом */
+#bst_sel .wrapper,
+#wear .wrapper,
+#news .wrapper {
+    page-break-inside: avoid !important; /* ✅ Блок не разрывается и не отрывается от заголовка */
+    break-inside: avoid !important;
+    margin-bottom: 2rem !important;
+}
+
+/* 5. КАРТОЧКИ ТОВАРОВ — выстраиваем в ряд через inline-block */
+#bst_sel .products {
+    display: block !important; /* Отключаем горизонтальную ленту */
+}
+
+#bst_sel .products li {
+    display: inline-block !important; /* Карточки встают в ряд */
+    width: 30% !important;           /* По 3 штуки в строку */
+    vertical-align: top;
+    margin-right: 2%;
+    margin-bottom: 2rem;
+    page-break-inside: avoid;        /* Карточка не рвётся */
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+/* Перебиваем мобильное правило, которое скрывает карточки с 4-й */
+#bst_sel .products li:nth-child(n) {
+    display: inline-block !important; 
+}
+
+#bst_sel .products img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important; /* Без обрезки */
+    margin: 0 0 1rem 0 !important;
+    border: 1px solid #ccc;
+}
+
+/* 6. НОВОСТИ — полностью блочные, картинки не обрезаются */
+.news {
+    page-break-inside: auto !important; /* Разрешаем новостям переноситься */
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed #666;
+    padding-bottom: 1rem;
+}
+
+.news img {
+    width: 250px !important; /* ✅ Компактный размер */
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+.news-info, .news-info2, .news-info3 {
+    display: block !important;
+}
+
+/* 7. Плашки, ссылки и прочее */
+.frame, .frame-catalog, .frame-cost, .frame-step, .button-readmore {
+    border: 1px solid #000 !important;
+    background: transparent !important;
+    color: #000 !important;
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    margin: 0.5em 0;
+}
+
+a[href^="http"]:not([href*="verseser"])::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #555;
+}
+
+.wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.collage-item {
+    aspect-ratio: auto !important;
+    overflow: visible !important;
+    margin-bottom: 1rem;
+}
+
+.products-wrapper {
+    overflow: visible !important;
+}
+
+p, li {
+    orphans: 3;
+    widows: 3;
+}

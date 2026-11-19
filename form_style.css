@@ -1,0 +1,187 @@
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;   
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+}
+
+/*  Форма регистрации  */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 48rem;
+    margin-top: 3rem;
+}
+
+
+.contact-form fieldset {
+    margin: 0;
+    padding: 2rem;
+    border: 1px solid var(--drop_color);
+    border-radius: 4px;
+    background: var(--shade-of-white);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-form legend {
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding: 0 0.8rem;
+}
+
+
+.contact-form fieldset fieldset {
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.contact-form fieldset fieldset legend {
+    font-size: 1.4rem;
+    padding: 0;
+}
+
+.contact-form label {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.contact-form input {
+    font-size: 1.6rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--drop_color);
+    border-radius: 4px;
+    background: var(--background);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus {
+    outline: 4px solid var(--main-color);
+    outline-offset: -1px;
+    box-shadow: 0 0 8px rgba(119, 41, 41, 0.35);
+}
+
+
+.choice-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2.5rem;
+    padding-top: 1rem;
+}
+
+.choice-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.choice-item label {
+    font-weight: 400;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.choice-item input {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    accent-color: var(--main-color);
+}
+
+
+/* обязательные поля */
+.required-mark {
+    color: #d93025;
+}
+
+/* кнопки */
+.form-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.contact-form .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+}
+
+.contact-form .material-icons {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.button-reset {
+    background: transparent;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+}
+
+.button-reset:hover {
+    background: var(--main-color);
+    color: var(--background);
+}
+
+header {
+        position: static;
+}
+
+main .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /*  по центру страницы */
+}
+
+.contact-form {
+    width: 100%;           
+}
+
+/* подсказки */
+.contact-form input::placeholder {
+    color: var(--collection-color);
+    opacity: 1;
+}
+
+/* обязательные поля */
+.contact-form input:required:placeholder-shown {
+    border: 1px solid #d93025;
+    background: #fff7f7;
+}
+
+.contact-form input:required:placeholder-shown:focus {
+    outline: 3px solid #46050f;
+}
+
+/* текст отмеченных radio/checkbox  */
+.choice-item input:checked + label {
+    color: #772929;
+    font-weight: 600;
+}
+
+.choice-item input:checked + label::before {
+    content: "✓ ";
+}
+
+/* логотип в футере*/
+.final-logo {
+    display: inline-block;
+    transform: rotate(30deg) scale(1.5) skew(10deg, 5deg);
+    transform-origin: center;
+}
